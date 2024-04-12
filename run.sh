@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # db required env variables
-export DB_HOST="kiouni.db.elephantsql.com"
+export DB_HOST="<host_name>"
 export DB_PORT=5432
-export DB_USER="rghrxzte"
-export DB_PASSWORD="5uzggMvXHjpT2XaUpsOQzKfS37BBqMlz"
-export DB_NAME="rghrxzte"
+export DB_USER="<db_user>"
+export DB_PASSWORD="<db_password>"
+export DB_NAME="<db_name>"
 export DB_SSL_MODE="disable"
 
 # server required env variable
