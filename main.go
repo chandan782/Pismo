@@ -9,8 +9,8 @@ import (
 	"github.com/chandan782/Pismo/api/controllers"
 	"github.com/chandan782/Pismo/configs"
 	"github.com/chandan782/Pismo/db"
-	_ "github.com/chandan782/Pismo/docs"
 	"github.com/chandan782/Pismo/routes"
+	_ "github.com/chandan782/Pismo/swagger/docs"
 	"github.com/gofiber/fiber/v2"
 )
 
