@@ -33,3 +33,7 @@ This is a Go application for managing accounts and transactions.
     mockgen -source=./db/db_handler.go -destination=./tests/mocks/db_mocks.go -package=mocks
     mockgen -source=./validate/validate.go -destination=./tests/mocks/validate_mocks.go -package=mocks
     mockgen -source=./api/services/services.go -destination=./tests/mocks/services_mocks.go -package=mocks
+
+5. To run this service:
+   ```bash
+   ./run.sh
