@@ -1,0 +1,107 @@
+basePath: /api/v1
+definitions:
+  models.CreateAccountRequest:
+    properties:
+      document_number:
+        type: string
+    required:
+    - document_number
+    type: object
+  models.CreateTransactionRequest:
+    properties:
+      account_id:
+        type: string
+      amount:
+        type: number
+      operation_type_id:
+        enum:
+        - 1
+        - 2
+        - 3
+        - 4
+        type: integer
+    required:
+    - account_id
+    - amount
+    - operation_type_id
+    type: object
+  models.GetAccountByIdResponse:
+    properties:
+      document_number:
+        type: string
+      id:
+        type: string
+    type: object
+host: localhost:3000
+info:
+  contact: {}
+  description: This is the Pismo API for managing user accounts and transactions.
+  title: Pismo API
+  version: "1.0"
+paths:
+  /accounts:
+    post:
+      consumes:
+      - application/json
+      description: Create a new account with the given details
+      parameters:
+      - description: Account details
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateAccountRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.CreateAccountRequest'
+      summary: Create a new account
+      tags:
+      - accounts
+  /accounts/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get account details by its ID
+      parameters:
+      - description: Account ID
+        in: path
+        name: accountId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.GetAccountByIdResponse'
+      summary: Get account by ID
+      tags:
+      - accounts
+  /transactions:
+    post:
+      consumes:
+      - application/json
+      description: Create a new transaction with the given details
+      parameters:
+      - description: Transaction details
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateTransactionRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.CreateTransactionRequest'
+      summary: Create a new transaction
+      tags:
+      - transactions
+swagger: "2.0"
