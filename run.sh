@@ -12,12 +12,12 @@ export DB_SSL_MODE="disable"
 export SERVER_PORT="3000"
 
 # generate swagger docs
-swag init
+swag init -o swagger/docs
 
 # mockgen command to generates mocks
-mockgen -source=./db/db_handler.go -destination=./tests/mocks/db_mocks.go -package=mocks
-mockgen -source=./validate/validate.go -destination=./tests/mocks/validate_mocks.go -package=mocks
-mockgen -source=./api/services/services.go -destination=./tests/mocks/services_mocks.go -package=mocks
+mockgen -source=./db/db_handler.go -destination=./internals/mocks/db_mocks.go -package=mocks
+mockgen -source=./validate/validate.go -destination=./internals/mocks/validate_mocks.go -package=mocks
+mockgen -source=./api/services/services.go -destination=./internals/mocks/services_mocks.go -package=mocks
 
 # refresh dependencies
 go mod tidy
