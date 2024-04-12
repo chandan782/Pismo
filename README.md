@@ -14,7 +14,7 @@ This is a Go application for managing accounts and transactions.
    cd pismo
 
 
-### Set up the required environment variables:
+2. Set up the required environment variables:
     ```bash
     export DB_HOST="your_db_host"
     export DB_PORT=5432
@@ -23,16 +23,12 @@ This is a Go application for managing accounts and transactions.
     export DB_NAME="your_db_name"
     export DB_SSL_MODE="disable"
     export SERVER_PORT="3000"
-    ```
 
-
-
-### Generate Swagger documentation:
+3. Generate Swagger documentation:
     ```bash
     swag init
-    ```
 
-### Generate mocks:
+4. Generate mocks:
     ```bash
     mockgen -source=./db/db_handler.go -destination=./tests/mocks/db_mocks.go -package=mocks
     mockgen -source=./validate/validate.go -destination=./tests/mocks/validate_mocks.go -package=mocks
